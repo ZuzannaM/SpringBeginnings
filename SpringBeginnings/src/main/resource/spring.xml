@@ -6,6 +6,13 @@
     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
    <bean id="triangle" class="com.moleda.zuzanna.SpringBeginnings.Triangle">
+   		<!-- setting fields of triangle object using setters -->
+   		<!-- <property name="type" value="equilateral" /> -->
+   		
+   		<!-- setting fields of triangle object using constructors -->
+   		<constructor-arg value="equilateral" />
+   		<constructor-arg value="20" />
+   		
    </bean>
 
 </beans>
