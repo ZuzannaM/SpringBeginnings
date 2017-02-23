@@ -2,39 +2,37 @@ package com.moleda.zuzanna.SpringBeginnings;
 
 public class Triangle {
 
-	private String type;
-	private Integer height;
-	
-	public Triangle(Integer height) {
-		this.height = height;
+	private Point pointA;
+	private Point pointB;
+	private Point pointC;
+
+	public Point getPointA() {
+		return pointA;
 	}
 
-	public Triangle(String type) {
-		this.type = type;
+	public void setPointA(Point pointA) {
+		this.pointA = pointA;
 	}
 
-	public Triangle(String type, Integer height) {
-		this.type = type;
-		this.height = height;
+	public Point getPointB() {
+		return pointB;
 	}
 
-	public Integer getHeight() {
-		return height;
+	public void setPointB(Point pointB) {
+		this.pointB = pointB;
 	}
 
-	public void setHeight(Integer height) {
-		this.height = height;
+	public Point getPointC() {
+		return pointC;
 	}
 
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
+	public void setPointC(Point pointC) {
+		this.pointC = pointC;
 	}
 
 	public void draw() {
-		System.out.println(getType() + " Triangle drawn of height " + getHeight());
+		System.out.println("PointA = ( " + getPointA().getX() + ", " + getPointA().getY() + " )");
+		System.out.println("PointB = ( " + getPointB().getX() + ", " + getPointB().getY() + " )");
+		System.out.println("PointC = ( " + getPointC().getX() + ", " + getPointC().getY() + " )");
 	}
 }
