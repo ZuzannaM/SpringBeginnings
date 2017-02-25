@@ -1,5 +1,9 @@
 package com.moleda.zuzanna.SpringBeginnings;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+import javax.annotation.Resource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Required;
@@ -7,24 +11,35 @@ import org.springframework.beans.factory.annotation.Required;
 public class Circle implements Shape {
 
 	
-	private Point center;
+	private Point point2;
 
 	public Point getCenter() {
-		return center;
+		return point2;
 	}
 
-	@Required
-	@Autowired
-	@Qualifier("circleRelated")
+//	@Required
+//	@Autowired
+//	@Qualifier("circleRelated")
+	@Resource(name="zeroPoint")
 	public void setCenter(Point center) {
-		this.center = center;
+		this.point2 = center;
 	}
 
 	@Override
 	public void draw() {
 		System.out.println("Drawing a circle.");
-		System.out.println("Center point of circle: (" + center.getX() + ", " + center.getY() + ")");
+		System.out.println("Center point of circle: (" + point2.getX() + ", " + point2.getY() + ")");
 
+	}
+	
+	@PostConstruct
+	public void initCircle() {
+		System.out.println("Initialization of circle");
+	}
+	
+	@PreDestroy
+	public void destroyCircle() {
+		System.out.println("Destroy of circle");
 	}
 
 }
