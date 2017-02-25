@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
-public class Triangle implements InitializingBean, DisposableBean{
+public class Triangle implements InitializingBean, DisposableBean, Shape{
 
 	private Point pointA;
 	private Point pointB;
@@ -36,6 +36,7 @@ public class Triangle implements InitializingBean, DisposableBean{
 	}
 
 	public void draw() {
+		System.out.println("Drawing a triangle.");
 		System.out.println("PointA = ( " + getPointA().getX() + ", " + getPointA().getY() + " )");
 		System.out.println("PointB = ( " + getPointB().getX() + ", " + getPointB().getY() + " )");
 		System.out.println("PointC = ( " + getPointC().getX() + ", " + getPointC().getY() + " )");

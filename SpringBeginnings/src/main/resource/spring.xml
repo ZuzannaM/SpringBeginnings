@@ -30,9 +30,13 @@
 		<property name="y" value="0" />
 	</bean>
 	
-	<bean class="com.moleda.zuzanna.SpringBeginnings.DisplayNameBeanPostProcessor" />
+	<bean id="circle" class="com.moleda.zuzanna.SpringBeginnings.Circle">
+		<property name="center" ref="zeroPoint"/>
+	</bean>
 	
-	<bean class="com.moleda.zuzanna.SpringBeginnings.BeanFactoryPP" />
+	<!-- <bean class="com.moleda.zuzanna.SpringBeginnings.DisplayNameBeanPostProcessor" />  -->
+	
+	<!-- <bean class="com.moleda.zuzanna.SpringBeginnings.BeanFactoryPP" />  -->
 	
 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="location" value="pointsconfig.properties" />
