@@ -46,6 +46,14 @@
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="location" value="pointsconfig.properties" />
 	</bean>
+	
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>mymessage</value>
+			</list>
+		</property>
+	</bean>
 
 	<context:annotation-config />
 	

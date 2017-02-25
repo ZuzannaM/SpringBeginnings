@@ -4,31 +4,44 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.annotation.Resource;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Circle implements Shape {
 
 	
-	private Point point2;
+	private Point center;
+	@Autowired
+	private MessageSource messageSource;
+	
+	public MessageSource getMessageSource() {
+		return messageSource;
+	}
+
+	public void setMessageSource(MessageSource messageSource) {
+		this.messageSource = messageSource;
+	}
 
 	public Point getCenter() {
-		return point2;
+		return center;
 	}
 
 //	@Required
 //	@Autowired
 //	@Qualifier("circleRelated")
-	@Resource(name="zeroPoint")
+	@Resource(name="point2")
 	public void setCenter(Point center) {
-		this.point2 = center;
+		this.center = center;
 	}
 
 	@Override
 	public void draw() {
-		System.out.println("Drawing a circle.");
-		System.out.println("Center point of circle: (" + point2.getX() + ", " + point2.getY() + ")");
-
+		System.out.println(this.messageSource.getMessage("circle.drawing", null, "default", null));
+		System.out.println(this.messageSource.getMessage("circle.point", new Object[] {center.getX(), center.getY()}, "default", null));
+//		System.out.println("Center point of circle: (" + center.getX() + ", " + center.getY() + ")");
+		System.out.println(this.messageSource.getMessage("greeting", null, "default", null));
 	}
 	
 	@PostConstruct
