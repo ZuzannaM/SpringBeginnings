@@ -1,21 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:dwr="http://www.directwebremoting.org/schema/spring-dwr"
+	xmlns:mongo="http://www.springframework.org/schema/data/mongo"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
-    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd" default-init-method="myInit" default-destroy-method="cleanUp">
-    
-    <bean id="parentTriangle" class="com.moleda.zuzanna.SpringBeginnings.Triangle" abstract="true">
-    	<property name="pointA" ref="zeroPoint" />
-    </bean>
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd
+    http://www.springframework.org/schema/data/mongo
+    http://www.springframework.org/schema/data/mongo/spring-mongo-1.0.xsd
+    http://www.directwebremoting.org/schema/spring-dwr
+    http://www.directwebremoting.org/schema/spring-dwr-3.0.xsd"
+	default-init-method="myInit" default-destroy-method="cleanUp">
+
+	<bean id="parentTriangle" class="com.moleda.zuzanna.SpringBeginnings.Triangle"
+		abstract="true">
+		<property name="pointA" ref="zeroPoint" />
+	</bean>
 
 	<alias name="triangle" alias="triangle-alias" />
-	<bean id="triangle" class="com.moleda.zuzanna.SpringBeginnings.Triangle" parent="parentTriangle" >
-		 <property name="pointB" ref="point2" />
-		 <property name="pointC" ref="point3" />
+	<bean id="triangle" class="com.moleda.zuzanna.SpringBeginnings.Triangle"
+		parent="parentTriangle">
+		<property name="pointB" ref="point2" />
+		<property name="pointC" ref="point3" />
 	</bean>
-	
-	<bean id="zeroPoint" class="com.moleda.zuzanna.SpringBeginnings.Point" >
+
+	<bean id="zeroPoint" class="com.moleda.zuzanna.SpringBeginnings.Point">
+		<qualifier value="circleRelated" />
 		<property name="x" value="${pointZero.pointX}" />
 		<property name="y" value="${pointZero.pointY}" />
 	</bean>
@@ -29,17 +41,16 @@
 		<property name="x" value="20" />
 		<property name="y" value="0" />
 	</bean>
-	
+
 	<bean id="circle" class="com.moleda.zuzanna.SpringBeginnings.Circle">
-		<property name="center" ref="zeroPoint"/>
+
 	</bean>
-	
-	<!-- <bean class="com.moleda.zuzanna.SpringBeginnings.DisplayNameBeanPostProcessor" />  -->
-	
-	<!-- <bean class="com.moleda.zuzanna.SpringBeginnings.BeanFactoryPP" />  -->
-	
-	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="location" value="pointsconfig.properties" />
 	</bean>
+
+	<context:annotation-config />
 
 </beans>
