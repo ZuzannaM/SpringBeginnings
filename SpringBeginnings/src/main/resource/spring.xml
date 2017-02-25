@@ -3,14 +3,14 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
-    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd" default-init-method="myInit" default-destroy-method="cleanUp">
     
     <bean id="parentTriangle" class="com.moleda.zuzanna.SpringBeginnings.Triangle" abstract="true">
     	<property name="pointA" ref="zeroPoint" />
     </bean>
 
 	<alias name="triangle" alias="triangle-alias" />
-	<bean id="triangle" class="com.moleda.zuzanna.SpringBeginnings.Triangle" parent="parentTriangle">
+	<bean id="triangle" class="com.moleda.zuzanna.SpringBeginnings.Triangle" parent="parentTriangle" >
 		 <property name="pointB" ref="point2" />
 		 <property name="pointC" ref="point3" />
 	</bean>
