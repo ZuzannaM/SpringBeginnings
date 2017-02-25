@@ -16,8 +16,8 @@
 	</bean>
 	
 	<bean id="zeroPoint" class="com.moleda.zuzanna.SpringBeginnings.Point" >
-		<property name="x" value="0" />
-		<property name="y" value="0" />
+		<property name="x" value="${pointZero.pointX}" />
+		<property name="y" value="${pointZero.pointY}" />
 	</bean>
 
 	<bean id="point2" class="com.moleda.zuzanna.SpringBeginnings.Point">
@@ -31,5 +31,11 @@
 	</bean>
 	
 	<bean class="com.moleda.zuzanna.SpringBeginnings.DisplayNameBeanPostProcessor" />
+	
+	<bean class="com.moleda.zuzanna.SpringBeginnings.BeanFactoryPP" />
+	
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="pointsconfig.properties" />
+	</bean>
 
 </beans>
