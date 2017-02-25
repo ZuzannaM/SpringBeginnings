@@ -14,5 +14,11 @@ public class App {
 		Triangle triangle = (Triangle) context.getBean("triangle");
 		triangle.draw();
 		
+		// ERROR bean id="parentTriangle" is defined abstract
+		//Triangle triangle2 = (Triangle) context.getBean("parentTriangle");
+		//triangle2.draw();
+		
+		
+		
 	}
 }
