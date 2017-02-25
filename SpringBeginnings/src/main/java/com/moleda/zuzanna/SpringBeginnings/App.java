@@ -1,5 +1,8 @@
 package com.moleda.zuzanna.SpringBeginnings;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -10,5 +13,6 @@ public class App {
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
 		Triangle triangle = (Triangle) context.getBean("triangle");
 		triangle.draw();
+		
 	}
 }
